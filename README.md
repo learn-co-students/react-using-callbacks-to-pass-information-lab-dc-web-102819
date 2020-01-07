@@ -18,7 +18,7 @@ invoking it. Once invoked, the callback can effect change in the component that
 _owns it_, instead of the component that _called it_.
 
 For this code-along, we'll explore this concept by creating an interactive "pixel"
-drawing app entirely out React components and data.
+drawing app entirely out of React components and data.
 
 We'll use three components, forming a parent with two children:
 
@@ -87,13 +87,13 @@ export default class Matrix extends Component {
     super()
   }
 
-  genRow = (vals) => (
-    vals.map((val, idx) => <Cell key={idx} color={val} />)
-  )
+  genRow = (vals) => {
+    return vals.map((val, idx) => <Cell key={idx} color={val} />)
+  }
 
-  genMatrix = () => (
-    this.props.values.map((rowVals, idx) => <div key={idx} className="row">{this.genRow(rowVals)}</div>)
-  )
+  genMatrix = () => {
+    return this.props.values.map((rowVals, idx) => <div key={idx} className="row">{this.genRow(rowVals)}</div>)
+  }
 
   render() {
     return (
